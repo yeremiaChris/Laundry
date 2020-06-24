@@ -1,0 +1,54 @@
+{% extends 'account/base.html' %}
+{% load static %}
+{% block content %}
+    <table class="table table-hover table-light">
+      <thead class="thead-dark">
+        <a href="{% url 'create-anak' %}" class="btn btn-outline-dark mb-2 float-right">Tambah</a>
+        <tr>
+          <th>No</th>
+          <th>Nama</th>
+          <th>Jumlah</th>
+          <th>Tanggal Antar</th>
+          <th>Status</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in anak %}
+        <tr>
+          <th>{{ forloop.counter }}</th>
+          <td><img src="{{i.image_profile.url}}" class="img-thumbnail rounded-circle" width="50"><strong class="pl-3">{{ i.nama }}</strong></td>
+          <td>{{ i.jumlah }}</td>
+          <td>{{ i.tanggal_antar|date:"F d, Y" }}</td>
+          <td>{{ i.status }}</td>
+          <td> <a href="{% url 'update-anak' i.id %}" class="btn btn-outline-secondary">Edit</a> <a href="{% url 'delete-anak' i.id %}" class="btn btn-outline-danger">Hapus</a> </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <ul class="pagination">
+      {% if anak.has_previous %}
+        <li class="page-item">
+          <a href="?page={{anak.previous_page_number}}" class="page-link">&laquo;</a>
+        </li>
+      {% endif %}
+
+
+      {% for p in anak.paginator.page_range %}
+        {% if anak.number == p %}
+          <li class="page-item active">
+            <a href="?page={{ p }}" class="page-link">{{ p }}</a>
+          </li>
+        {% else %}
+          <li class="page-item">
+            <a href="?page={{ p }}" class="page-link">{{ p }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+      {% if anak.has_next %}
+        <li class="page-item">
+          <a href="?page={{anak.next_page_number}}" class="page-link">&raquo;</a>
+        </li>
+      {% endif %}
+    </ul>
+{% endblock content %}

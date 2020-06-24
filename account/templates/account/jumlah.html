@@ -1,0 +1,34 @@
+
+<div class="row ml-2 mr-2 pt-2 " >
+  <div class="col-md ml-2">
+    <div class="card card-body card border-info">
+      <h5>Total Anak</h5>
+      <hr>
+      <h1 style="text-align: center;padding: 10px">{{ jumlah }}</h1>
+    </div>
+  </div>
+  <p></p>
+  <div class="col-md ml-2">
+    <div class="card card-body card border-info">
+      <h5>Masih Cuci</h5>
+      <hr>
+      <h1 style="text-align: center;padding: 10px"><a href="{% url 'detail' %}" class="text-dark">{{ pending }}</a></h1>
+    </div>
+  </div>
+  <p></p>
+  <div class="col-md ml-2">
+    <div class="card card-body card border-info">
+      <h5>Baru Selesai</h5>
+      <hr>
+      <h1 style="text-align: center;padding: 10px"><a href="{% url 'selesai' %}" class="text-dark">{{ selesai }}</a></h1>
+    </div>
+  </div>
+  <p></p>
+  <div class="col-md ml-2">
+    <div class="card card-body card border-info">
+      <h5>Tidak Antar</h5>
+      <hr>
+      <h1 style="text-align: center;padding: 10px"><a href="{% url 'kosong' %}" class="text-dark">{{ kosong }}</a></h1>
+    </div>
+  </div>
+</div>

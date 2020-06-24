@@ -1,0 +1,102 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>Laundry</title>
+    <style media="screen">
+    .shadow {
+        -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+        -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
+        box-shadow:         3px 3px 5px 6px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+        }
+    </style>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2 ">
+      <a class="navbar-brand" href="{% url 'home' %}"> <img class="rounded mx-auto d-block"src="{% static 'images/unaki.png' %}" alt="" width="200px"> </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link " href="{% url 'home' %}"><h1>Laundry</h1> <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="navbar" id="navbarSupportedContent">
+        <ul class="navbar-nav ">
+            <a href="{% url 'logout' %}" class="text-light btn"><h2>Logout</h2> </a>
+        </ul>
+      </div>
+    </nav>
+    <!-- akhir navbar -->
+    <div class="container text-center pt-2">
+      <div class="row">
+        <div class="col-md">
+          <img src="{{anak.image_profile.url}}" class=""width="200">
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center mt-5">{{anak.nama}}</h1>
+          <hr class="border border-dark">
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row ml-2 mr-2 pt-2" >
+        <div class="col-md ml-2">
+          <div class="card card-body card border-info shadow">
+            <h2 class="text-center">Jumlah Baju</h2>
+            <hr>
+            <h1 style="text-align: center;padding: 10px">{{ anak.jumlah }}</h1>
+          </div>
+        </div>
+        <p></p>
+        <p></p>
+        <div class="col-md ml-2">
+          <div class="card card-body card border-info shadow">
+            <h2 class="text-center">Tanggal</h2>
+            <hr>
+            <h1 style="text-align: center;padding: 10px">{{ anak.tanggal_antar|date:"F d, Y" }}</h1>
+          </div>
+        </div>
+      </div>
+      <div class="row ml-2 mr-2 pt-2">
+        <div class="col-md ml-2">
+          <div class="card card-body card border-info shadow">
+            <h2 class="text-center">Status</h2>
+            <hr>
+            <h1 style="text-align: center;padding: 10px">{{ anak.status }}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

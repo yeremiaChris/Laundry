@@ -1,0 +1,23 @@
+{% extends 'account/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col-md">
+          <form class="" action="" method="post">
+            {% csrf_token %}
+            <fieldset class="form-groub">
+              <legend class="border-bottom mb-4"><strong>Update</strong></legend>
+              <strong>{{ form|crispy }}</strong>
+            </fieldset>
+            <div class="form-groub">
+                <button type="submit" name="button" class="btn btn-outline-info">Update</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}

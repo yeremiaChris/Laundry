@@ -1,0 +1,33 @@
+{% extends 'account/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col-md">
+          <form class="" action="" method="post">
+            {% csrf_token %}
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card border-warning card-warning mb-3">
+                    <div class="card-header"><strong>Baca baik2</strong></div>
+                    <div class="card-body">
+                      <h5 class="card-title">Yakin kau mau hapus si {{ anak_to_delete.nama }}??</h5>
+                      <div class="form-groub">
+                          <button type="submit" name="button" class="btn btn-danger">Yakin Cuy</button>
+                          <a href="{% url 'home' %}" class="btn btn-warning">Nggak lah</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}
